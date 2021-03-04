@@ -3,6 +3,7 @@ package tec.bd.app.service;
 import tec.bd.app.bd.SetDB;
 import tec.bd.app.domain.Estudiante;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,8 +26,7 @@ public class EstudianteService {
     }
 
     public void addNew(Estudiante e) {
-        // Verificar si el estudiante que viene por parametro ya existe en la BD
-        this.database.getEstudianteTable().add(e);
+        HashSet<Estudiante> HashSet =new HashSet <Estudiante>();
     }
 
     public void updateStudent(Estudiante e) {
@@ -37,7 +37,12 @@ public class EstudianteService {
 
     public void deleteStudent(long carne) {
         // implementar codigo de borrado
-        // HashSet.remove(e);
+
+        //Creamos un Hashset vacio
+
+
+        HashSet.remove(carne);
+
     }
 
 }
