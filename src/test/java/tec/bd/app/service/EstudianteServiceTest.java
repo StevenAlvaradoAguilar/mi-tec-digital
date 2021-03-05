@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import tec.bd.app.bd.SetDB;
 import tec.bd.app.domain.Estudiante;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -19,7 +17,7 @@ public class EstudianteServiceTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        Set<Estudiante> estudiantesTable = new HashSet<>(){{
+        Set<Estudiante> estudiantesTable = new TreeSet<>(){{
             add(new Estudiante(1, "Juan", "Perez", 20));
             add(new Estudiante(32, "Maria", "Rojas", 21));
             add(new Estudiante(22, "Roberto", "Brenes", 22));
@@ -48,24 +46,48 @@ public class EstudianteServiceTest {
 
     }
 
+
     @Test
     public void addNewStudent() throws Exception {
 
         var karol = new Estudiante(2, "Karol", "Jimenez", 21);
+        var melani = new Estudiante(5, "melani", "Alfaro", 18);
+        var maria = new Estudiante(32, "Maria", "Rojas", 21);
         estudianteService.addNew(karol);
+        estudianteService.addNew(melani);
+        estudianteService.addNew(maria);
 
         var estudiantes = this.estudianteService.getAll();
 
-        assertThat(estudiantes).hasSize(4);
+        assertThat(estudiantes).hasSize(5);
     }
 
     @Test
     public void deleteStudent() throws Exception {
 
+        var estudianteBorrado = estudianteService.getById(1);
+        estudianteService.deleteStudent(estudianteBorrado.getCarne());
+
+        var estudianteBorrado1 = estudianteService.getById(32);
+        estudianteService.deleteStudent(estudianteBorrado1.getCarne());
+
+        var estudiantes = this.estudianteService.getAll();
+
+        assertThat(estudiantes).hasSize(1);
+
     }
 
     @Test
     public void updateStudent() throws Exception {
+
+        var estudianteActualizado = estudianteService.getById(1);
+        estudianteActualizado.setNombre(estudianteActualizado.getNombre());
+        estudianteActualizado.setApellido(estudianteActualizado.getApellido());
+        estudianteActualizado.setEdad(estudianteActualizado.getEdad());
+
+        var estudiantes = this.estudianteService.getAll();
+
+        assertThat(estudiantes).hasSize(3);
 
     }
 

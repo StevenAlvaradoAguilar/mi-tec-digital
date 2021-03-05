@@ -1,6 +1,8 @@
 package tec.bd.app.domain;
 
-public class Estudiante {
+import java.util.Objects;
+
+public class Estudiante implements Comparable<Estudiante>{
 
     private long carne;
     private String nombre;
@@ -44,5 +46,25 @@ public class Estudiante {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    @Override
+    public boolean equals(Object estudiante) {
+        if (this == estudiante)
+            return true;
+        if (estudiante == null || getClass() != estudiante.getClass())
+            return false;
+        Estudiante that = (Estudiante) estudiante;
+        return carne == that.carne && edad == that.edad && nombre.equals(that.nombre) && apellido.equals(that.apellido);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carne, nombre, apellido, edad);
+    }
+
+    @Override
+    public int compareTo(Estudiante estudiante) {
+        return (int) (this.carne - estudiante.getCarne());
     }
 }

@@ -33,6 +33,7 @@ public class App  {
         options.addOption(Option.builder("h")
                 .longOpt("help")
                 .desc("Ayuda: ver argumentos soportados")
+
                 .required(false)
                 .build());
 
@@ -119,6 +120,8 @@ public class App  {
             HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp( "Log messages to sequence diagrams converter", options );
             System.exit(1);
+        } catch (Exception e) {
+            e.printStackTrace(); //OJO CON ESTO
         }
     }
 
@@ -146,7 +149,7 @@ public class App  {
         }
     }
 
-    public static void addNewStudent(EstudianteService estudianteService, Long carne, String nombre, String apellido, int edad) {
+    public static void addNewStudent(EstudianteService estudianteService, Long carne, String nombre, String apellido, int edad) throws Exception {
         var nuevoEstudiante = new Estudiante(carne,nombre, apellido, edad);
         estudianteService.addNew(nuevoEstudiante);
     }
