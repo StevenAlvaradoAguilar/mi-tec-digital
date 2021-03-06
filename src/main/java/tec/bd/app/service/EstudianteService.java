@@ -98,7 +98,6 @@ public class EstudianteService {
                 condicion = true;
                 break;
             }
-            //
             if (estudianteDelete.getCarne() != carne){
                 System.out.println("El estudiante con ese carnet no existe" + carne);
             }
