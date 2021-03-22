@@ -14,4 +14,11 @@ public interface ProfesorDAO extends GenericDAO<Profesor, Integer>{
      */
     List<Profesor> findByLastName(String lastName);
 
+    /**
+     * Obtener todos los cursos por ciudad
+     * @param city
+     * return
+     */
+    List<Profesor> findByCity(String city);
+
 }

@@ -65,4 +65,15 @@ public class ProfesorServiceImpl implements ProfesorService {
         }
         return null;
     }
+
+    @Override
+    public List<Profesor> getTeachersByCity(String city) {
+        //TODO: implementarlo
+        //validar que el lastName no sea nulo
+        if (!city.isEmpty()){
+            return this.profesorDAO.findByCity(city);
+        }
+        return null;
+    }
+
 }

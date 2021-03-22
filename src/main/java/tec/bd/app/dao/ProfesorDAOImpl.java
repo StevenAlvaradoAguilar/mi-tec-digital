@@ -22,6 +22,11 @@ public class ProfesorDAOImpl extends GenericSetDAOImpl<Profesor, Integer> implem
     }
 
     @Override
+    public List<Profesor> findByCity(String city) {
+        return this.findAll().stream().filter(c -> c.getCiudad().equals(city)).collect(Collectors.toList());
+    }
+
+    @Override
     protected Profesor rowToEntity(Row row) {
         // conversiones de Row a Estudiante
         var id = row.intAttributeValue("id");

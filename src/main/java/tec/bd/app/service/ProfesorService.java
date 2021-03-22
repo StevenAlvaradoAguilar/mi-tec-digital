@@ -19,4 +19,6 @@ public interface ProfesorService {
 
     List<Profesor> getTeachersByLastName(String lastName);
 
+    List<Profesor> getTeachersByCity(String city);
+
 }

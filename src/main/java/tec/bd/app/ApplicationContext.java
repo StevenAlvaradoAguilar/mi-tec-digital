@@ -188,7 +188,7 @@ public class ApplicationContext {
         return new CursoServiceImpl(cursoDAO);
      }
 
-    public CursoDAO getPCursoSetDAO() {
+    public CursoDAO getCursoSetDAO() {
         return this.cursoSetDAO;
     }
 

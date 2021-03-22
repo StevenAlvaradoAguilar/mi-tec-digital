@@ -109,5 +109,17 @@ public class ProfesorDAOImplTest {
         assertThat(profesor.getNombre()).isEqualTo("Jaime");
     }
 
+    @Test
+    public void findByCity() throws Exception {
+        //TODO: hay que implementarlo
+        var actual = this.profesorDAO.findByCity("San Jose");
+
+        assertThat(actual).hasSize(1);
+
+        var profesor = actual.get(0);
+
+        assertThat(profesor.getCiudad()).isEqualTo("San Jose");
+    }
+
 
 }

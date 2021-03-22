@@ -146,4 +146,19 @@ public class ProfesorServiceImplTest {
 
     }
 
+    @Test
+    public void getTeachersByCity() throws Exception {
+        //TODO: hay que implementarlo
+        List<Profesor> profesores = Arrays.asList(mock(Profesor.class), mock(Profesor.class));
+
+        given(profesorDAO.findByCity(anyString())).willReturn(profesores);
+
+        var actual = this.profesorService.getTeachersByCity("San Jose");
+
+        verify(profesorDAO, times(1)).findByCity("San Jose");
+
+        assertThat(actual).hasSize(2);
+
+    }
+
 }
