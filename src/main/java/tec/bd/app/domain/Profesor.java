@@ -1,25 +1,25 @@
 package tec.bd.app.domain;
 
-public class Estudiante implements Entity{
+public class Profesor implements Entity{
 
-    private int carne;
+    private int id;
     private String nombre;
     private String apellido;
-    private int edad;
+    private String ciudad;
 
-    public Estudiante(int carne, String nombre, String apellido, int edad) {
-        this.carne = carne;
+    public Profesor(int id, String nombre, String apellido, String ciudad) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
+        this.ciudad = ciudad;
     }
 
-    public int getCarne() {
-        return carne;
+    public int getId() {
+        return id;
     }
 
-    public void setCarne(int carne) {
-        this.carne = carne;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -38,12 +38,12 @@ public class Estudiante implements Entity{
         this.apellido = apellido;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
 }
