@@ -5,7 +5,6 @@ import tec.bd.app.database.set.RowAttribute;
 import tec.bd.app.database.set.SetDB;
 import tec.bd.app.domain.Estudiante;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,18 +21,7 @@ public class EstudianteDAOImpl extends GenericSetDAOImpl<Estudiante, Integer> im
 
     @Override
     public List<Estudiante> findAllSortByLastName() {
-        var estudiantes = this.findAll();
-        Comparator<Estudiante> comparator = (e1, e2) -> e1.getApellido().compareTo(e2.getApellido());
-
-        estudiantes.stream().forEach(e -> System.out.println(e.getNombre() +" "+e.getApellido()));
-
-        estudiantes.sort(comparator);
-
-        System.out.println("-----------------------------------------");
-
-        estudiantes.stream().forEach(e -> System.out.println(e.getNombre() +" "+e.getApellido()));
-
-        return estudiantes;
+        return this.findAll().stream().filter(e -> e.getApellido().equals(Estudiante.class)).collect(Collectors.toList());
     }
 
     @Override

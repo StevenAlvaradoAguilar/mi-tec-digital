@@ -144,9 +144,14 @@ public class EstudianteServiceImplTest {
         //TODO: hay que implementarlo
 //        List<Estudiante> estudiantes = Arrays.asList(mock(Estudiante.class), mock(Estudiante.class));
 //
-//        given(estudianteDAO.findAllSortByLastName().containsAll(anyCollection()));
+//        given(estudianteDAO.findAllSortByLastName()).willReturn(estudiantes);
 //
-        return ;
+//        var actual = this.estudianteService.getStudentsSortedByLastName();
+//
+//        verify(estudianteDAO, times(1)).findAllSortByLastName();
+//
+//        assertThat(actual).asString();
+
     }
 
 

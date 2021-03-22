@@ -3,6 +3,7 @@ package tec.bd.app.service;
 import tec.bd.app.dao.EstudianteDAO;
 import tec.bd.app.domain.Estudiante;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +26,20 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     public List<Estudiante> getStudentsSortedByLastName() {
-        return this.estudianteDAO.findAllSortByLastName();
+
+        var estudiantes = this.estudianteDAO.findAll();
+        Comparator<Estudiante> comparator = (e1, e2) -> e1.getApellido().compareTo(e2.getApellido());
+
+        estudiantes.stream().forEach(e -> System.out.println(e.getNombre() +" "+e.getApellido()));
+
+        estudiantes.sort(comparator);
+
+        System.out.println("-----------------------------------------");
+
+        estudiantes.stream().forEach(e -> System.out.println(e.getNombre() +" "+e.getApellido()));
+
+        return estudiantes;
+
     }
 
     @Override

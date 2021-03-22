@@ -8,6 +8,7 @@ import tec.bd.app.database.set.RowAttribute;
 import tec.bd.app.domain.Entity;
 import tec.bd.app.domain.Estudiante;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -110,14 +111,19 @@ public class EstudianteDAOImplTest {
     @Test
     public void findAllSortedByLastName() throws Exception {
         //TODO: hay que implementarlo
-//        var actual = this.estudianteDAO.findAllSortByLastName();
-//
-//        assertThat(actual);
-//
-//        var curso = actual.addAll();
-//
-//        assertThat(curso.getNombre()).isEqualTo("Maria");
-        return;
+        var estudiantes = this.estudianteDAO.findAll();
+
+        Comparator<Estudiante> comparator = (e1, e2) -> e1.getApellido().compareTo(e2.getApellido());
+
+        estudiantes.stream().forEach(e ->System.out.println(e.getNombre() +" "+e.getApellido()));
+
+        estudiantes.sort(comparator);
+
+        System.out.println("-----------------------------------------");
+
+        estudiantes.stream().forEach(e -> System.out.println(e.getNombre() +" "+e.getApellido()));
+
+        assertThat(estudiantes.getClass());
 
     }
 
