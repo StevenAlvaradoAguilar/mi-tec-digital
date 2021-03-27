@@ -78,27 +78,27 @@ public class ApplicationContext {
         // Registros de la tabla curso
         // ---------------------------------------------------------------
         var mateId = new RowAttribute("id", 101);
-        var mateNombre = new RowAttribute("nombre", "Juan");
-        var mateCreditos = new RowAttribute("creditos", "Perez");
-        var mateDepartamento = new RowAttribute("departamento", 20);
+        var mateNombre = new RowAttribute("nombre", "Matematica");
+        var mateCreditos = new RowAttribute("creditos", 2);
+        var mateDepartamento = new RowAttribute("departamento", "Matematicas");
         var mateRow = new Row(new RowAttribute[]{ mateId, mateNombre, mateCreditos, mateDepartamento });
 
         var pooId = new RowAttribute("id", 121);
-        var pooNombre = new RowAttribute("nombre", "Maria");
-        var pooCreditos = new RowAttribute("creditos", "Rojas");
-        var pooDepartamento = new RowAttribute("departamento", 21);
+        var pooNombre = new RowAttribute("nombre", "POO");
+        var pooCreditos = new RowAttribute("creditos", 3);
+        var pooDepartamento = new RowAttribute("departamento", "Computacion");
         var pooRow = new Row(new RowAttribute[]{ pooId, pooNombre, pooCreditos, pooDepartamento });
 
         var dbId = new RowAttribute("id", 103);
-        var dbNombre = new RowAttribute("nombre", "Pedro");
-        var dbCreditos = new RowAttribute("creditos", "Infante");
-        var dbDepartamento = new RowAttribute("departamento", 23);
+        var dbNombre = new RowAttribute("nombre", "Base de Datos");
+        var dbCreditos = new RowAttribute("creditos", 4);
+        var dbDepartamento = new RowAttribute("departamento", "Computacion");
         var dbRow = new Row(new RowAttribute[]{ dbId, dbNombre, dbCreditos, dbDepartamento });
 
         var inglesId = new RowAttribute("id", 120);
-        var inglesNombre = new RowAttribute("nombre", "Raquel");
-        var inglesCreditos = new RowAttribute("creditos", "Rojas");
-        var inglesDepartamento = new RowAttribute("departamento", 25);
+        var inglesNombre = new RowAttribute("nombre", "Ingles");
+        var inglesCreditos = new RowAttribute("creditos", 2);
+        var inglesDepartamento = new RowAttribute("departamento", "Lenguajes");
         var inglesRow = new Row(new RowAttribute[]{ inglesId, inglesNombre, inglesCreditos, inglesDepartamento });
 
 

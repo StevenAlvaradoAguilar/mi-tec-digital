@@ -238,19 +238,20 @@ public class App  {
             } else if(cmd.hasOption("cid")) {
                 // Mostrar un curso por id
                 System.out.println("IMPLEMENTAR: Mostrar curso por id");
-                var id = cmd.getOptionValue("eid");
+                var id = cmd.getOptionValue("cid");
                 showCourseInfo(cursoService, Integer.parseInt(id));
 
             } else if(cmd.hasOption("cc")) {
                 // Crear/Agregar un nuevo curso
                 System.out.println("IMPLEMENTAR: Crear/Agregar un nuevo curso");
-                var newCourseValues = cmd.getOptionValues("ec");
+                var newCourseValues = cmd.getOptionValues("cc");
                 addNewCourse(cursoService,
                         Integer.parseInt(newCourseValues[0]),
                         newCourseValues[1],
                         Integer.parseInt(newCourseValues[2]),
                         newCourseValues[3]);
                 showAllCourses(cursoService);
+
 
             } else if(cmd.hasOption("cd")) {
                 // Borrar/remover un curso
