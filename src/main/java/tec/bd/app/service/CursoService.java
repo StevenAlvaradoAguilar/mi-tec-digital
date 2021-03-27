@@ -1,7 +1,6 @@
 package tec.bd.app.service;
 
 import tec.bd.app.domain.Curso;
-import tec.bd.app.domain.Estudiante;
 
 import java.util.List;
 import java.util.Optional;

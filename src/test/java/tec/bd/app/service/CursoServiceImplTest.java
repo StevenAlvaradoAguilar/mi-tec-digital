@@ -62,7 +62,7 @@ public class CursoServiceImplTest {
     }
 
     @Test
-    public void addNewStudent() throws Exception {
+    public void addNewCourse() throws Exception {
 
         /*
         En la primera invocacion va a devolver una lista de 3 estudiantes. En la segunda una lista de 4
@@ -72,15 +72,15 @@ public class CursoServiceImplTest {
                 List.of(mock(Curso.class), mock(Curso.class), mock(Curso.class), mock(Curso.class))
         );
 
-        var studentsBeforeSave = this.cursoService.getAll();
+        var coursesBeforeSave = this.cursoService.getAll();
 
-        var karol = new Curso(2, "Karol", 5, "");
-        cursoService.addNew(karol);
+        var curso = new Curso(2, "MD", 5, "Edi-C");
+        cursoService.addNew(curso);
 
-        var studentsAfterSave = this.cursoService.getAll();
+        var coursesAfterSave = this.cursoService.getAll();
 
-        verify(this.cursoDAO, times(1)).save(karol);
-        assertThat(studentsAfterSave.size()).isGreaterThan(studentsBeforeSave.size());
+        verify(this.cursoDAO, times(1)).save(curso);
+        assertThat(coursesAfterSave.size()).isGreaterThan(coursesBeforeSave.size());
     }
 
     @Test

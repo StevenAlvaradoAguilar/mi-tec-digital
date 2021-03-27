@@ -35,6 +35,7 @@ public class ProfesorServiceImpl implements ProfesorService {
         if(!profesor.isPresent()) {
             this.profesorDAO.save(p);
         }
+        System.out.println("El profesor ya está");
     }
 
     @Override

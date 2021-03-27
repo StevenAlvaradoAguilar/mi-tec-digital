@@ -3,7 +3,6 @@ package tec.bd.app.database.set;
 import org.junit.jupiter.api.Test;
 
 import tec.bd.app.domain.Estudiante;
-import tec.bd.app.service.EstudianteService;
 
 import java.util.HashSet;
 import java.util.Map;

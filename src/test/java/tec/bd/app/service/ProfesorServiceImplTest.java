@@ -6,7 +6,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import tec.bd.app.dao.ProfesorDAO;
-import tec.bd.app.domain.Estudiante;
 import tec.bd.app.domain.Profesor;
 import org.mockito.junit.jupiter.MockitoExtension;
 

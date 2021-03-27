@@ -3,10 +3,8 @@ package tec.bd.app.dao;
 import tec.bd.app.database.set.Row;
 import tec.bd.app.database.set.RowAttribute;
 import tec.bd.app.database.set.SetDB;
-import tec.bd.app.domain.Estudiante;
 import tec.bd.app.domain.Profesor;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -8,7 +8,6 @@ import tec.bd.app.database.set.SetDB;
 import tec.bd.app.domain.Entity;
 import tec.bd.app.domain.Profesor;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
