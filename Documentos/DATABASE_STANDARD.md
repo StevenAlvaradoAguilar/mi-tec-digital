@@ -166,7 +166,7 @@ diferentes conjuntos de caracteres y órdenes de clasificación en los niveles d
 tabla y columna. Los resultados a continuación provienen de MySQL 8.0.
 ![](http://imgfz.com/i/bcXTPwi.png)
 
-#Conclusión
+# Conclusión
 En base con la realización de esta tarea-3 es importante destacar la importancia del uso del 
 estándar para realizar mejor los proyectos de la mejor manera así cómo desarrollar 
 mejores prácticas en el uso de MySQL así cómo en el manejo de los datos que se puedan utilizar 
