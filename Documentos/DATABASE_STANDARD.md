@@ -45,8 +45,6 @@ Se dará la explicación de cada una de ellas y la forma en que son tratadas den
 variar por la persona que la utiliza y es importante saber y destacar la importancia de saber los distintos usos 
 y aplicaciones.
 # Justificación del esquema seleccionado
-=============
-Justificación del esquema seleccionado
 Definición del estándar para entidades:
 a.	Descripción del estándar
 Use nombres de palabras en singular si es posible, solo cambie a nombres de palabras compuestas si es absolutamente 
@@ -167,7 +165,6 @@ diferentes conjuntos de caracteres y órdenes de clasificación en los niveles d
 tabla y columna. Los resultados a continuación provienen de MySQL 8.0.
 ![](http://imgfz.com/i/bcXTPwi.png)
 #Conclusión
-=============
 En base con la realización de esta tarea-3 es importante destacar la importancia del uso del 
 estándar para realizar mejor los proyectos de la mejor manera así cómo desarrollar 
 mejores prácticas en el uso de MySQL así cómo en el manejo de los datos que se puedan utilizar 
@@ -175,7 +172,6 @@ de mejor manera y de la forma adecuada para que no se pierdan datos, informació
 a que no se debe de usar más memoria de la necesaria y la importancia de la utilización de un 
 estándar específico.
 # Bibliografía
-=============
 Delgado, Hugo. (2017). Tipos de datos en MySQL para una base de datos SQL. 
 Recuperado 28 de marzo, 2021, de [Link](https://disenowebakus.net/tipos-de-datos-mysql.php)
 
