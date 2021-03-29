@@ -113,9 +113,16 @@ En nuestros ejemplos anteriores de comparación de cadenas, ignoramos el problem
 En base con la realización de esta tarea-3 es importante destacar la importancia de el uso del estándar para realizar mejor los proyectos de la mejor manera así cómo desarrollar mejores prácticas en el uso de MySQL así cómo en el manejo de los datos que se puedan utilizar de mejor manera y de la forma adecuada para que no se pierdan datos, información y espacio debido a que no se debe de usar más memoria de la necesaria y la importancia de la utilización de un estándar específico.
 # Bibliografía
 Delgado, Hugo. (2017). Tipos de datos en MySQL para una base de datos SQL. Recuperado 28 de marzo, 2021, de [Link](https://disenowebakus.net/tipos-de-datos-mysql.php)
+
 Drkusic, E. (2019). Learn SQL: Primary Key. SQL Shack - Articles about Database Auditing, Server Performance, Data Recovery, and More. [Link](https://www.sqlshack.com/learn-sql-primary-key/)
+
 Drkusic, E. (2020). Learn SQL: Foreign Key. SQL Shack - Articles about Database Auditing, Server Performance, Data Recovery, and More. [Link](https://www.sqlshack.com/learn-sql-foreign-key/)
+
 Drkusic, E. (2020b). Learn SQL: Naming Conventions. SQL Shack - Articles about Database Auditing, Server Performance, Data Recovery, and More. [Link](https://www.sqlshack.com/learn-sql-naming-conventions/)
+
 Hall, A. (2020). Pragmatic Database Schema Naming Conventions, Practices, and Patterns. Medium. [Link](https://adron.medium.com/pragmatic-database-schema-naming-conventions-practices-and-patterns-e483b0617bd)
+
 Ing. Hugo Delgado. (2015). Tipos de datos en MySQL para una base de datos SQL. Diseño Web akus.net. [Link](https://disenowebakus.net/tipos-de-datos-mysql.php)
+
 Pandey, A. R. (2015). MySQL naming / coding conventions: tips on mySQL database. How To Tutorials. [Link](https://anandarajpandey.com/2015/05/10/mysql-naming-coding-conventions-tips-on-mysql-database/)
+
