@@ -113,7 +113,9 @@ a.	Descripción del estándar
 Numéricos enteros
 Comencemos por conocer las opciones que tenemos para almacenar datos que sean números enteros (edades, cantidades, 
 magnitudes sin decimales); poseemos una variedad de opciones:
+
 ![](http://imgfz.com/i/LBHJy3p.png)
+
 Números con decimales
 Valores numéricos con decimales.
 Estos tipos de datos son necesarios para almacenar precios, salarios, importes de cuentas bancarias, etc. que no 
@@ -220,6 +222,7 @@ latin1_swedish_ci. MySQL 8.0 cambió los valores predeterminados, y ahora el jue
 es utf8mb4, y la intercalación predeterminada es utf8mb4_0900_ai_ci. MySQL se puede configurar para utilizar 
 diferentes conjuntos de caracteres y órdenes de clasificación en los niveles de conexión, base de datos, 
 tabla y columna. Los resultados a continuación provienen de MySQL 8.0.
+
 ![](http://imgfz.com/i/bcXTPwi.png)
 
 # Conclusión
