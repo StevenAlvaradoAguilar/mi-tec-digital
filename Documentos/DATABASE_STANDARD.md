@@ -88,6 +88,7 @@ b.	Ejemplos
 
 Nombres válidos y comprensibles como: james, matemática (la tilde no se utiliza por problemas de sintaxis evitarla en 
 el código), estudios_sociales o estudiosSociales, db, poo, inglés, nombre_país, código_país, nombre_cliente.
+
 CREATE TABLE Usuario (
 
     usuario_Id int AUTO_INCREMENT PRIMARY KEY,
@@ -130,6 +131,7 @@ b.	Ejemplos
 
 Nombres como start_date y end_date son bastante descriptivos. Si lo desea, puede describirlos de manera aún más precisa,
 utilizando nombres como call_start_date y call_end_date para tipo de datos de fecha.
+
 CREATE TABLE user (
 
     user_Id int AUTO_INCREMENT PRIMARY KEY,
@@ -158,6 +160,7 @@ atributos reservados todo en mayúsculo o minúscula.
 b.	Ejemplos
 
 Algunos ejemplos pueden ser: estudiante_id, profesor_id, curso_id, etc.
+
 CREATE TABLE user (
 
     user_Id int AUTO_INCREMENT PRIMARY KEY,
@@ -188,6 +191,7 @@ b.	Ejemplos
 
 Por ejemplo: blog_id representa la identificación de clave externa del blog de la tabla, customer_id o id_customer, 
 employee_id o id_employee, id_precio, nombre_de_la_empresa, apellido, ciudad.
+
 CREATE TABLE Usuario (
 
     usuario_Id int AUTO_INCREMENT PRIMARY KEY,
