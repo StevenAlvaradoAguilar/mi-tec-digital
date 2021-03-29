@@ -47,7 +47,9 @@ y aplicaciones.
 
 # Justificación del esquema seleccionado
 Definición del estándar para entidades:
+
 a.	Descripción del estándar
+
 Use nombres de palabras en singular si es posible, solo cambie a nombres de palabras compuestas si es absolutamente 
 necesario. Idealmente, los nombres deberían ser palabras simples. Utilice letra mayúscula al escribir la entidad, 
 utilizar el guion bajo o underscore para separar las palabras o si este no se utiliza escribir la segunda palabra 
@@ -63,16 +65,22 @@ CREATE TABLE Usuario (
     contraseña varchar (255),
     email varchar (255)
 );
+
 c.	Excepciones
 Muchas veces no se podrá elegir nombres de entidades de forma singular si este es el caso se debe de elegir un nombre 
 en plural que no provoque problemas al ser usado en objetos.
+
 Definición del estándar para atributos:
+
 a.	Descripción del estándar
+
 Usar minúscula al inicio de la palabra para distinguir que es un atributo y no una entidad puede ser singular o plural 
 según sea el caso, también si es una palabra compuesta la otra palabra debe iniciar con mayúscula para que su 
 significado sea autoexplicativo, esto ayudará a escribir rápidamente, evitará errores. Los nombres no deben tener más 
 de 64 caracteres. Evite usar el prefijo.
+
 b.	Ejemplos
+
 Nombres válidos y comprensibles como: james, matemática (la tilde no se utiliza por problemas de sintaxis evitarla en 
 el código), estudios_sociales o estudiosSociales, db, poo, inglés, nombre_país, código_país, nombre_cliente.
 CREATE TABLE Usuario (
@@ -81,12 +89,17 @@ CREATE TABLE Usuario (
     contraseña varchar (255),
     email varchar (255)
 );
+
 c.	Excepciones
+
 No es un problema si dos columnas, en diferentes tablas de la base de datos, tienen el mismo nombre. Aun así, 
 tener nombres únicos para cada columna está bien porque reducimos la posibilidad de mezclar posteriormente estas dos 
-columnas mientras escribimos consultas
+columnas mientras escribimos consultas.
+
 Definición del estándar para tipos de datos a usar para atributos:
+
 a.	Descripción del estándar
+
 Numéricos enteros
 Comencemos por conocer las opciones que tenemos para almacenar datos que sean números enteros (edades, cantidades, 
 magnitudes sin decimales); poseemos una variedad de opciones:
@@ -100,7 +113,9 @@ DECIMAL.
 Datos alfanuméricos
 CHAR, VARCHAR, BINARY, VARBINARY, TINYBLOB, TINYTEXT, BLOB, TEXT, MEDIUMBLOB, MEDIUMTEXT, LONGBLOB, LONGTEX, ENUM, SET.
 Todos ellos sirven para una cantidad de datos alfanuméricos distinta.
+
 b.	Ejemplos
+
 Nombres como start_date y end_date son bastante descriptivos. Si lo desea, puede describirlos de manera aún más precisa,
 utilizando nombres como call_start_date y call_end_date para tipo de datos de fecha.
 CREATE TABLE user (
@@ -109,16 +124,22 @@ CREATE TABLE user (
     password varchar (255),
     email varchar (255)
 );
+
 c. Excepciones
+
 Definición del estándar para llaves primarias:
+
 a.	Descripción del estándar
+
 Los nombres de campo deben ser comprensibles, por ejemplo: precio, nombre de la empresa, apellido, ciudad. El nombre 
 de la columna principal: la clave principal puede ser id o el nombre de la tabla
 Evite los nombres de claves primarias con significado semántico. Un error de diseño clásico es crear una tabla con 
 clave principal que tenga un significado real como "nombre" como clave principal. En este caso, si alguien cambia 
 su nombre, la relación con otra tabla se verá afectada y el nombre puede ser repetitivo (no único). Utilizar los 
 atributos reservados todo en mayúsculo o minúscula.
+
 b.	Ejemplos
+
 Algunos ejemplos pueden ser: estudiante_id, profesor_id, curso_id, etc.
 CREATE TABLE user (
     user_Id int AUTO_INCREMENT PRIMARY KEY,
@@ -126,17 +147,23 @@ CREATE TABLE user (
     password varchar (255),
     email varchar (255)
 );
+
 c.	Excepciones
 Evite utilizar una palabra de reserva como nombre de campo: orden, fecha en vez de eso utilice puede agregar un prefijo 
 a estos nombres para que sea comprensible como nombre_de_usuario, fecha_de_suscripción, hora_inicio, día_fina etc.
+
 Definición del estándar para llaves foráneas e índices:
+
 a.	Descripción del estándar
+
 Los nombres de campo deben ser comprensibles, Evite los nombres abreviados, concatenados o basados en acrónimos. 
 Usar minúscula al inicio de la palabra. La columna de clave externa debe tener un nombre de tabla con su clave principal.
 Dado que almacenan valores del rango de la clave principal de la tabla a la que se hace referencia, debe usar ese 
 nombre de tabla e "id_nombreTabla", Esto nos dirá que esta es una columna de clave externa y también apuntará a la 
 tabla referenciada. Utilizar los atributos reservados todo en mayúsculo o minúscula.
+
 b.	Ejemplos
+
 Por ejemplo: blog_id representa la identificación de clave externa del blog de la tabla, customer_id o id_customer, 
 employee_id o id_employee, id_precio, nombre_de_la_empresa, apellido, ciudad.
 CREATE TABLE Usuario (
@@ -147,8 +174,10 @@ CREATE TABLE Usuario (
     PRIMARY KEY (usuario_Id),
     FOREIGN KEY (usuario_Id) REFERENCES Persona(persona_Id)
 );
+
 c.	Excepciones
-Collation and Character Sets (Underline)
+
+# Collation and Character Sets
 Debido a que no todo el mundo quiere almacenar cadenas en inglés, es importante que un servidor 
 de base de datos pueda administrar caracteres que no estén en inglés y diferentes formas de clasificar 
 caracteres. Cuando compara u ordena cadenas, la forma en que MySQL evalúa el resultado depende del 
