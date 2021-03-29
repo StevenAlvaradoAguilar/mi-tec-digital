@@ -19,10 +19,6 @@
 									Marzo, 2021
 **Contenidos**
 
-[TOCM]
-
-[TOC]
-
 # Introducción
 Introducción
 El estándar de nombres para la definición de esquemas de entidad relación (diccionario de datos) en MySQL es de suma importancia su buen uso y la aplicación de esta es una escritura que todas las personas varían, pero debido a que muchas veces debemos cambiar y adaptarnos a un estándar que sea correcto y estándar en donde la sintaxis del código sea correcta y que sea entendible para todos los futuros programadores puedan darle mantenimiento y mejorarlo de la mejor forma.
