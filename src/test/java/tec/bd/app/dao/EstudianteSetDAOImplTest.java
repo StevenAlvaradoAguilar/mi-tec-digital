@@ -107,10 +107,11 @@ public class EstudianteSetDAOImplTest {
 
         assertThat(actual).hasSize(1);
 
-        var curso = actual.get(0);
+        var estudiante = actual.get(0);
 
-        assertThat(curso.getNombre()).isEqualTo("Maria");
+        assertThat(estudiante.getNombre()).isEqualTo("Maria");
     }
+
 
     @Test
     public void findAllSortedByLastName() throws Exception {

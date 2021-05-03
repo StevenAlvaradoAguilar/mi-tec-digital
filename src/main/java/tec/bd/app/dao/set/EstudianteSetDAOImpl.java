@@ -8,6 +8,7 @@ import tec.bd.app.domain.Estudiante;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EstudianteSetDAOImpl extends GenericSetDAOImpl<Estudiante, Integer> implements EstudianteDAO {
 
@@ -17,7 +18,7 @@ public class EstudianteSetDAOImpl extends GenericSetDAOImpl<Estudiante, Integer>
 
     @Override
     public List<Estudiante> findByLastName(String lastName) {
-        return null;
+        return this.findAll().stream().filter(e -> e.getApellido().equals(lastName)).collect(Collectors.toList());
     }
 
     @Override

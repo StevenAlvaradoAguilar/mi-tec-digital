@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import tec.bd.app.dao.EstudianteDAO;
 import tec.bd.app.domain.Estudiante;
 import org.mockito.junit.jupiter.MockitoExtension;
+import tec.bd.app.domain.Profesor;
 
 import java.util.*;
 
@@ -90,6 +91,9 @@ public class EstudianteServiceImplTest {
                 List.of(mock(Estudiante.class), mock(Estudiante.class))
         );
 
+        //Dado que estudianteDAO encuentre cualquier entero debe retornar el valor del mock de la clase profesor
+        given(this.estudianteDAO.findById(anyInt())).willReturn(Optional.of(mock(Estudiante.class)));
+
         var studentsBeforeSave = this.estudianteService.getAll();
 
         estudianteService.deleteStudent(2);
@@ -97,6 +101,7 @@ public class EstudianteServiceImplTest {
         var studentsAfterSave = this.estudianteService.getAll();
 
         verify(this.estudianteDAO, times(1)).delete(2);
+
         assertThat(studentsAfterSave.size()).isLessThan(studentsBeforeSave.size());
     }
 
