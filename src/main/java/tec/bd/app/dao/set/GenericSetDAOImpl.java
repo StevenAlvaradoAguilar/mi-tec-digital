@@ -58,7 +58,6 @@ public abstract class GenericSetDAOImpl<T, ID extends Serializable> implements G
                 .findFirst();
     }
 
-    //Metodos abstractos no se implementan, son como una plantilla
     protected abstract T rowToEntity(Row row);
 
     protected abstract Row entityToRow(T e);

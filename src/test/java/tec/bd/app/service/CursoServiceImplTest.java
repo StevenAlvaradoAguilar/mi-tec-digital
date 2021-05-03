@@ -74,7 +74,7 @@ public class CursoServiceImplTest {
 
         var coursesBeforeSave = this.cursoService.getAll();
 
-        var curso = new Curso(2, "MD", 5, "Edi-C");
+        var curso = new Curso(2, "MD", "Edi-C", 5);
         cursoService.addNew(curso);
 
         var coursesAfterSave = this.cursoService.getAll();
@@ -120,7 +120,7 @@ public class CursoServiceImplTest {
         var courseBefore = this.cursoService.getById(2);
 
         //FOC es Fundamentos de organizacion de computadoras
-        var foc = new Curso(5, "FOC", 3, "Edi-C");
+        var foc = new Curso(5, "FOC", "Edi-C", 3);
         cursoService.updateCourse(foc);
 
         var courseAfter = this.cursoService.getById(5);

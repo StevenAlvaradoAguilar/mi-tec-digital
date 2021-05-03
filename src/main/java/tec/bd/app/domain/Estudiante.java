@@ -1,17 +1,21 @@
 package tec.bd.app.domain;
 
+import java.util.Date;
+
 public class Estudiante implements Entity{
 
     private int carne;
     private String nombre;
     private String apellido;
-    private int edad;
+    private Date fechaNacimiento;
+    private int totalCreditos;
 
-    public Estudiante(int carne, String nombre, String apellido, int edad) {
+    public Estudiante(int carne, String nombre, String apellido, Date fechaNacimiento, int totalCreditos) {
         this.carne = carne;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.totalCreditos = totalCreditos;
     }
 
     public int getCarne() {
@@ -38,12 +42,30 @@ public class Estudiante implements Entity{
         this.apellido = apellido;
     }
 
-    public int getEdad() {
-        return edad;
+    public Date getFechaNacimiento() {
+        return this.fechaNacimiento;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public int getTotalCreditos() {
+        return totalCreditos;
+    }
+
+    public void setTotalCreditos(int totalCreditos) {
+        this.totalCreditos = totalCreditos;
+    }
+
+    @Override
+    public Integer getId() {
+        return this.carne;
+    }
+
+    @Override
+    public String toString() {
+        return "id " + this.getCarne() + ", nombre " + this.getNombre() + ", apellido " + this.getApellido() + ", fecha nacimiento " + this.getFechaNacimiento() + ", creditos " + this.getTotalCreditos();
     }
 
 }

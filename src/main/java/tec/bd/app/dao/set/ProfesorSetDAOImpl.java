@@ -9,10 +9,10 @@ import tec.bd.app.domain.Profesor;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProfesorDAOImpl extends GenericSetDAOImpl<Profesor, Integer> implements ProfesorDAO {
+public class ProfesorSetDAOImpl extends GenericSetDAOImpl<Profesor, Integer> implements ProfesorDAO {
 
-    public ProfesorDAOImpl(SetDB setDB, Class<Profesor> clazz) {
-        super(setDB, clazz);
+    public ProfesorSetDAOImpl(SetDB setDB) {
+        super(setDB, Profesor.class);
     }
 
     @Override

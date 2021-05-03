@@ -2,7 +2,7 @@ package tec.bd.app.domain;
 
 public class Profesor implements Entity{
 
-    private int id;
+    private Integer id;
     private String nombre;
     private String apellido;
     private String ciudad;
@@ -14,8 +14,9 @@ public class Profesor implements Entity{
         this.ciudad = ciudad;
     }
 
-    public int getId() {
-        return id;
+
+    public Integer getId() {
+        return this.id;
     }
 
     public void setId(int id) {
@@ -44,6 +45,11 @@ public class Profesor implements Entity{
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    @Override
+    public String toString() {
+        return "id " + this.getId() + ", nombre " + this.getNombre() + ", apellido " + this.getApellido() + ", ciudad " + this.getCiudad();
     }
 
 }

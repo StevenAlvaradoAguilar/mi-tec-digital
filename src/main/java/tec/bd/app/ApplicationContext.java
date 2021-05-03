@@ -23,6 +23,7 @@ import java.util.Set;
 public class ApplicationContext {
 
     private SetDB setDB;
+    private DBProperties dbProperties;
     private EstudianteDAO estudianteDAO;
     private EstudianteService estudianteService;
 
@@ -151,7 +152,9 @@ public class ApplicationContext {
     private static CursoDAO initCursoSetDAO(SetDB setDB) {
         return new CursoSetDAOImpl(setDB);
     }
-    private static ProfesorDAO initProfesorSetDAO(SetDB setDB) { return new ProfesorSetDAOImpl(setDB); }
+    private static ProfesorDAO initProfesorSetDAO(SetDB setDB) {
+        return new ProfesorSetDAOImpl(setDB);
+    }
 
 
 

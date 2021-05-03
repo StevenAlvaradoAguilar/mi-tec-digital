@@ -20,7 +20,6 @@ public class DBProperties {
         return connectionString;
     }
 
-
     public String getUsername() {
         return username;
     }

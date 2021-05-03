@@ -9,10 +9,10 @@ import tec.bd.app.domain.Curso;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CursoDAOImpl extends GenericSetDAOImpl<Curso, Integer> implements CursoDAO {
+public class CursoSetDAOImpl extends GenericSetDAOImpl<Curso, Integer> implements CursoDAO {
 
-    public CursoDAOImpl(SetDB setDB, Class<Curso> clazz) {
-        super(setDB, clazz);
+    public CursoSetDAOImpl(SetDB setDB) {
+        super(setDB, Curso.class);
     }
 
     @Override
@@ -28,11 +28,12 @@ public class CursoDAOImpl extends GenericSetDAOImpl<Curso, Integer> implements C
     @Override
     protected Curso rowToEntity(Row row) {
         // conversiones de Row a Curso
-        var id = row.intAttributeValue("id");
-        var nombre = row.stringAttributeValue("nombre");
-        var creditos = row.intAttributeValue("creditos");
-        var departamento = row.stringAttributeValue("departamento");
-        return new Curso(id, nombre, creditos, departamento);
+        Curso curso = new Curso();
+        curso.setId(row.intAttributeValue("id"));
+        curso.setNombre(row.stringAttributeValue("nombre"));
+        curso.setDepartamento(row.stringAttributeValue("departamento"));
+        curso.setCreditos(row.intAttributeValue("creditos"));
+        return curso;
     }
 
     @Override

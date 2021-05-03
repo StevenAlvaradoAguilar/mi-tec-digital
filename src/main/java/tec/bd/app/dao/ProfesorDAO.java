@@ -1,6 +1,5 @@
 package tec.bd.app.dao;
 
-import tec.bd.app.domain.Estudiante;
 import tec.bd.app.domain.Profesor;
 
 import java.util.List;

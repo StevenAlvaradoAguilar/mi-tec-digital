@@ -6,23 +6,23 @@ import tec.bd.app.database.set.RowAttribute;
 import tec.bd.app.database.set.SetDB;
 import tec.bd.app.domain.Estudiante;
 
+import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class EstudianteDAOImpl extends GenericSetDAOImpl<Estudiante, Integer> implements EstudianteDAO {
+public class EstudianteSetDAOImpl extends GenericSetDAOImpl<Estudiante, Integer> implements EstudianteDAO {
 
-    public EstudianteDAOImpl(SetDB setDB, Class<Estudiante> clazz) {
-        super(setDB, clazz);
+    public EstudianteSetDAOImpl(SetDB setDB) {
+        super(setDB, Estudiante.class);
     }
 
     @Override
     public List<Estudiante> findByLastName(String lastName) {
-        return this.findAll().stream().filter(e -> e.getApellido().equals(lastName)).collect(Collectors.toList());
+        return null;
     }
 
     @Override
     public List<Estudiante> findAllSortByLastName() {
-        return this.findAll().stream().filter(e -> e.getApellido().equals(Estudiante.class)).collect(Collectors.toList());
+        return null;
     }
 
     @Override
@@ -31,8 +31,9 @@ public class EstudianteDAOImpl extends GenericSetDAOImpl<Estudiante, Integer> im
         var carne = row.intAttributeValue("id");
         var nombre = row.stringAttributeValue("nombre");
         var apellido = row.stringAttributeValue("apellido");
-        var edad = row.intAttributeValue("edad");
-        return new Estudiante(carne, nombre, apellido, edad);
+        var fechaNacimiento = row.dateAttributeValue("fechaNacimiento");
+        var totalCreditos = row.intAttributeValue("totalCreditos");
+        return new Estudiante(carne, nombre, apellido, fechaNacimiento, totalCreditos);
     }
 
     @Override
@@ -42,7 +43,8 @@ public class EstudianteDAOImpl extends GenericSetDAOImpl<Estudiante, Integer> im
                 new RowAttribute("id", e.getCarne()),
                 new RowAttribute("nombre", e.getNombre()),
                 new RowAttribute("apellido", e.getApellido()),
-                new RowAttribute("edad", e.getEdad())
+                new RowAttribute("fechaNacimiento", e.getFechaNacimiento()),
+                new RowAttribute("totalCreditos", e.getTotalCreditos())
         });
     }
 

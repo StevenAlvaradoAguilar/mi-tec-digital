@@ -70,7 +70,7 @@ public class EstudianteServiceImplTest {
 
         var studentsBeforeSave = this.estudianteService.getAll();
 
-        var karol = new Estudiante(2, "Karol", "Jimenez", 21);
+        var karol = new Estudiante(2, "Karol", "Jimenez", new Date(), 21);
         estudianteService.addNew(karol);
 
         var studentsAfterSave = this.estudianteService.getAll();
@@ -89,8 +89,6 @@ public class EstudianteServiceImplTest {
                 List.of(mock(Estudiante.class), mock(Estudiante.class), mock(Estudiante.class)),
                 List.of(mock(Estudiante.class), mock(Estudiante.class))
         );
-
-        given(this.estudianteDAO.findById(anyInt())).willReturn(Optional.of(mock(Estudiante.class)));
 
         var studentsBeforeSave = this.estudianteService.getAll();
 
@@ -115,7 +113,7 @@ public class EstudianteServiceImplTest {
 
         var studentBefore = this.estudianteService.getById(2);
 
-        var karol = new Estudiante(2, "Karol", "Jimenez", 21);
+        var karol = new Estudiante(2, "Karol", "Jimenez", new Date(), 21);
         estudianteService.updateStudent(karol);
 
         var studentAfter = this.estudianteService.getById(2);
