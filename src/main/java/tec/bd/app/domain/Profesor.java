@@ -6,17 +6,13 @@ public class Profesor implements Entity{
     private String nombre;
     private String apellido;
     private String ciudad;
+    private String departamento;
 
     public Profesor(int id, String nombre, String apellido, String ciudad) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.ciudad = ciudad;
-    }
-
-
-    public Integer getId() {
-        return this.id;
     }
 
     public void setId(int id) {
@@ -45,6 +41,11 @@ public class Profesor implements Entity{
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    @Override
+    public Integer getId() {
+        return this.id;
     }
 
     @Override

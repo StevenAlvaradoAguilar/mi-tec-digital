@@ -73,7 +73,7 @@ public class ProfesorServiceImplTest {
 
         var teachersBeforeSave = this.profesorService.getAll();
 
-        var lorena = new Profesor(2, "Lorena", "Lopez", "San Jose");
+        var lorena = new Profesor(2, "Lorena", "Lopez", "San Jose", "");
         profesorService.addNew(lorena);
 
         var teachersAfterSave = this.profesorService.getAll();
@@ -120,7 +120,7 @@ public class ProfesorServiceImplTest {
 
         var teacherBefore = this.profesorService.getById(2);
 
-        var pedro = new Profesor(2, "Pedro", "Lopez", "San Jose");
+        var pedro = new Profesor(2, "Pedro", "Lopez", "San Jose", "");
         profesorService.updateTeacher(pedro);
 
         var teacherAfter = this.profesorService.getById(2);

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class EstudianteMySqlDAOImpl extends GenericMySqlDAOImpl<Estudiante, Integer> implements EstudianteDAO {
 
@@ -30,12 +31,12 @@ public class EstudianteMySqlDAOImpl extends GenericMySqlDAOImpl<Estudiante, Inte
 
     @Override
     public List<Estudiante> findByLastName(String lastName) {
-        return null;
+        return this.findAll().stream().filter(e -> e.getApellido().equals(lastName)).collect(Collectors.toList());
     }
 
     @Override
     public List<Estudiante> findAllSortByLastName() {
-        return null;
+        return this.findAll().stream().filter(e -> e.getApellido().equals(Estudiante.class)).collect(Collectors.toList());
     }
 
     @Override

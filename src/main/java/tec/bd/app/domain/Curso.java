@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Curso implements Entity{
 
-    private Integer id;
+    private int id;
     private String nombre;
     private String departamento;
-    private Integer creditos;
+    private int creditos;
 
     public Curso(int id, String nombre, String departamento, int creditos) {
         this.id = id;
@@ -18,10 +18,6 @@ public class Curso implements Entity{
 
     public Curso() {
 
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setId(int id) {
@@ -50,6 +46,11 @@ public class Curso implements Entity{
 
     public void setCreditos(int creditos) {
         this.creditos = creditos;
+    }
+
+
+    public Integer getId() {
+        return id;
     }
 
     @Override

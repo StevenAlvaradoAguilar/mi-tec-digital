@@ -23,7 +23,7 @@ public class EstudianteSetDAOImpl extends GenericSetDAOImpl<Estudiante, Integer>
 
     @Override
     public List<Estudiante> findAllSortByLastName() {
-        return null;
+        return this.findAll().stream().filter(e -> e.getApellido().equals(Estudiante.class)).collect(Collectors.toList());
     }
 
     @Override
@@ -45,7 +45,7 @@ public class EstudianteSetDAOImpl extends GenericSetDAOImpl<Estudiante, Integer>
                 new RowAttribute("nombre", e.getNombre()),
                 new RowAttribute("apellido", e.getApellido()),
                 new RowAttribute("fechaNacimiento", e.getFechaNacimiento()),
-                new RowAttribute("totalCreditos", e.getTotalCreditos())
+                new RowAttribute("totalCreditos", e.getTotalCreditos()),
         });
     }
 

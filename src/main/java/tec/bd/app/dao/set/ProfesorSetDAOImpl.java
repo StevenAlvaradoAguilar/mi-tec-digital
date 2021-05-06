@@ -42,7 +42,7 @@ public class ProfesorSetDAOImpl extends GenericSetDAOImpl<Profesor, Integer> imp
                 new RowAttribute("id", p.getId()),
                 new RowAttribute("nombre", p.getNombre()),
                 new RowAttribute("apellido", p.getApellido()),
-                new RowAttribute("ciudad", p.getCiudad())
+                new RowAttribute("departamento", p.getCiudad())
         });
     }
 

@@ -26,18 +26,21 @@ public class ProfesorSetDAOImplTest {
         var jaimeNombre = new RowAttribute("nombre", "Jaime");
         var jaimeApellido = new RowAttribute("apellido", "Solis");
         var jaimeCiudad = new RowAttribute("ciudad", "Alajuela");
-        var jaimeRow = new Row(new RowAttribute[]{ jaimeId, jaimeNombre, jaimeApellido, jaimeCiudad });
+        var jaimeDepartamento = new RowAttribute("departamento", "Computacion");
+        var jaimeRow = new Row(new RowAttribute[]{ jaimeId, jaimeNombre, jaimeApellido, jaimeCiudad, jaimeDepartamento});
 
         var lorenaId = new RowAttribute("id", 2);
         var lorenaNombre = new RowAttribute("nombre", "Lorena");
         var lorenaApellido = new RowAttribute("apellido", "Rojas");
         var lorenaCiudad = new RowAttribute("ciudad", "San Jose");
-        var lorenaRow = new Row(new RowAttribute[]{ lorenaId, lorenaNombre, lorenaApellido, lorenaCiudad });
+        var lorenaDepartamento = new RowAttribute("departamento", "Computacion");
+        var lorenaRow = new Row(new RowAttribute[]{ lorenaId, lorenaNombre, lorenaApellido, lorenaCiudad, lorenaDepartamento});
 
         var kenethId = new RowAttribute("id", 4);
         var kenethNombre = new RowAttribute("nombre", "Keneth");
         var kenethApellido = new RowAttribute("apellido", "Hernandez");
         var kenethCiudad = new RowAttribute("ciudad", "Alajuela");
+        var kenethDepartamento = new RowAttribute("departamento", "Ing Civil");
         var kenethRow = new Row(new RowAttribute[]{ kenethId, kenethNombre, kenethApellido, kenethCiudad });
 
 
@@ -64,11 +67,12 @@ public class ProfesorSetDAOImplTest {
         assertThat(teacher.get().getNombre()).isEqualTo("Lorena");
         assertThat(teacher.get().getApellido()).isEqualTo("Rojas");
         assertThat(teacher.get().getCiudad()).isEqualTo("San Jose");
+        assertThat(teacher.get().getDepartamento()).isEqualTo("Computacion");
     }
 
     @Test
     public void save() throws Exception {
-        this.profesorDAO.save(new Profesor(5, "Luis", "Chacon", "Cartago"));
+        this.profesorDAO.save(new Profesor(5, "Luis", "Chacon", "Cartago", "Ing Civil"));
         var teacher = this.profesorDAO.findById(5);
         assertThat(this.profesorDAO.findAll()).hasSize(4);
         assertThat(teacher.isPresent()).isTrue();
@@ -76,6 +80,7 @@ public class ProfesorSetDAOImplTest {
         assertThat(teacher.get().getNombre()).isEqualTo("Luis");
         assertThat(teacher.get().getApellido()).isEqualTo("Chacon");
         assertThat(teacher.get().getCiudad()).isEqualTo("Cartago");
+        assertThat(teacher.get().getDepartamento()).isEqualTo("Ing Civil");
     }
 
     @Test
@@ -89,6 +94,7 @@ public class ProfesorSetDAOImplTest {
         assertThat(actual.get().getNombre()).isEqualTo("Lorena");
         assertThat(actual.get().getApellido()).isEqualTo("Rodriguez");
         assertThat(actual.get().getCiudad()).isEqualTo("San Carlos");
+        assertThat(actual.get().getCiudad()).isEqualTo("Computacion");
     }
 
     @Test
@@ -123,3 +129,5 @@ public class ProfesorSetDAOImplTest {
 
 
 }
+
+
