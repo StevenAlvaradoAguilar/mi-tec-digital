@@ -26,19 +26,19 @@ public class ProfesorSetDAOImplTest {
         var jaimeNombre = new RowAttribute("nombre", "Jaime");
         var jaimeApellido = new RowAttribute("apellido", "Solis");
         var jaimeCiudad = new RowAttribute("ciudad", "Alajuela");
-        var jaimeRow = new Row(new RowAttribute[]{ jaimeId, jaimeNombre, jaimeApellido, jaimeCiudad });
+        var jaimeRow = new Row(new RowAttribute[]{ jaimeId, jaimeNombre, jaimeApellido, jaimeCiudad});
 
         var lorenaId = new RowAttribute("id", 2);
         var lorenaNombre = new RowAttribute("nombre", "Lorena");
         var lorenaApellido = new RowAttribute("apellido", "Rojas");
         var lorenaCiudad = new RowAttribute("ciudad", "San Jose");
-        var lorenaRow = new Row(new RowAttribute[]{ lorenaId, lorenaNombre, lorenaApellido, lorenaCiudad });
+        var lorenaRow = new Row(new RowAttribute[]{ lorenaId, lorenaNombre, lorenaApellido, lorenaCiudad});
 
         var kenethId = new RowAttribute("id", 4);
         var kenethNombre = new RowAttribute("nombre", "Keneth");
         var kenethApellido = new RowAttribute("apellido", "Hernandez");
         var kenethCiudad = new RowAttribute("ciudad", "Alajuela");
-        var kenethRow = new Row(new RowAttribute[]{ kenethId, kenethNombre, kenethApellido, kenethCiudad });
+        var kenethRow = new Row(new RowAttribute[]{ kenethId, kenethNombre, kenethApellido});
 
 
         var tables = new HashMap<Class<? extends Entity>, Set<Row>>();
@@ -123,3 +123,5 @@ public class ProfesorSetDAOImplTest {
 
 
 }
+
+

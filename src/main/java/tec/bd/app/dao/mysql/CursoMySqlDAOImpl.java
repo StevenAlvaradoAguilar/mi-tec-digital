@@ -6,18 +6,16 @@ import tec.bd.app.dao.CursoDAO;
 import tec.bd.app.database.mysql.DBProperties;
 import tec.bd.app.domain.Curso;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> implements CursoDAO {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EstudianteMySqlDAOImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CursoMySqlDAOImpl.class);
 
     private final DBProperties dbProperties;
 
@@ -33,12 +31,12 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
 
     @Override
     public List<Curso> findByName(String name) {
-        return null;
+        return this.findAll().stream().filter(c -> c.getNombre().equals(name)).collect(Collectors.toList());
     }
 
     @Override
-    public List<Curso> findByDepartment(String departamento) {
-        return null;
+    public List<Curso> findByDepartment(String department) {
+        return this.findAll().stream().filter(c -> c.getDepartamento().equals(department)).collect(Collectors.toList());
     }
 
     @Override
@@ -54,8 +52,8 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
 
                 }
             }
-        } catch (SQLException c) {
-            LOG.error("Error when running {}", SQL_SELECT_CURSOS, c);
+        } catch (SQLException e) {
+            LOG.error("Error when running {}", SQL_SELECT_CURSOS, e);
         }
 
         return Collections.emptyList();
@@ -74,8 +72,8 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
                     }
                 }
             }
-        } catch (SQLException c) {
-            LOG.error("Error when running {}", SQL_SELECT_CURSOS, c);
+        } catch (SQLException e) {
+            LOG.error("Error when running {}", SQL_SELECT_CURSOS, e);
         }
 
         return Optional.empty();
@@ -98,8 +96,8 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
                     LOG.debug("{} fila agregada", rowCount);
                 }
             }
-        } catch (SQLException c) {
-            LOG.error("Error when running {}", SQL_SELECT_CURSOS, c);
+        } catch (SQLException e) {
+            LOG.error("Error when running {}", SQL_SELECT_CURSOS, e);
         }
     }
 
@@ -111,10 +109,10 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
                 try (Statement stmt = connection.createStatement()) {
                     //execute query
                     var sql = String.format(SQL_UPDATE_CURSO,
-                            curso.getId(),
                             curso.getNombre(),
                             curso.getDepartamento(),
-                            curso.getCreditos()
+                            curso.getCreditos(),
+                            curso.getId()
                     );
                     LOG.info(sql);
                     int rowCount = stmt.executeUpdate(sql);
@@ -124,8 +122,8 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
                     }
                 }
             }
-        } catch (SQLException c) {
-            LOG.error("Error when running {}", SQL_SELECT_CURSOS, c);
+        } catch (SQLException e) {
+            LOG.error("Error when running {}", SQL_SELECT_CURSOS, e);
         }
 
         return Optional.empty();
@@ -144,8 +142,8 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
                     LOG.debug("{} fila borrada", rowCount);
                 }
             }
-        } catch (SQLException c) {
-            LOG.error("Error when running {}", SQL_SELECT_CURSOS, c);
+        } catch (SQLException e) {
+            LOG.error("Error when running {}", SQL_SELECT_CURSOS, e);
         }
     }
 
@@ -166,4 +164,5 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
         }
         return cursos;
     }
+
 }

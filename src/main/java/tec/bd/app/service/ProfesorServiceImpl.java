@@ -20,11 +20,11 @@ public class ProfesorServiceImpl implements ProfesorService {
     }
 
     @Override
-    public Optional<Profesor> getById(int carne) {
+    public Optional<Profesor> getById(int id) {
         //TODO: validar el carne > 0. Si no cumple con eso se devuelve Optional.empty()
         var cursos = this.getAll();
         if (!(cursos == null)){
-            return this.profesorDAO.findById(carne);
+            return this.profesorDAO.findById(id);
         }
         return Optional.empty();
     }

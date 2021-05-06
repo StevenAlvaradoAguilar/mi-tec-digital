@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class ProfesorMySqlDAOImpl extends GenericMySqlDAOImpl<Profesor, Integer> implements ProfesorDAO {
 
-    private static final Logger LOG = LoggerFactory.getLogger(EstudianteMySqlDAOImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProfesorMySqlDAOImpl.class);
 
     private final DBProperties dbProperties;
 
@@ -30,12 +31,12 @@ public class ProfesorMySqlDAOImpl extends GenericMySqlDAOImpl<Profesor, Integer>
 
     @Override
     public List<Profesor> findByLastName(String lastName) {
-        return null;
+        return this.findAll().stream().filter(p -> p.getApellido().equals(lastName)).collect(Collectors.toList());
     }
 
     @Override
     public List<Profesor> findByCity(String city) {
-        return null;
+        return this.findAll().stream().filter(c -> c.getCiudad().equals(city)).collect(Collectors.toList());
     }
 
     @Override
@@ -108,10 +109,10 @@ public class ProfesorMySqlDAOImpl extends GenericMySqlDAOImpl<Profesor, Integer>
                 try (Statement stmt = connection.createStatement()) {
                     //execute query
                     var sql = String.format(SQL_UPDATE_PROFESOR,
-                            profesor.getId(),
                             profesor.getNombre(),
                             profesor.getApellido(),
-                            profesor.getCiudad()
+                            profesor.getCiudad(),
+                            profesor.getId()
                     );
                     LOG.info(sql);
                     int rowCount = stmt.executeUpdate(sql);
