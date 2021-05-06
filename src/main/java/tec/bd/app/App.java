@@ -219,12 +219,12 @@ public class App  {
                         Integer.parseInt(newStudentValues[4]));
                 showAllStudents(estudianteService);
 
-            } else if(cmd.hasOption("erln")) {  //Aca esta el codigo
+            } else if(cmd.hasOption("erln")) {
                 // Ver todos los estudiantes ordenados por apellido
                 System.out.println("IMPLEMENTAR: Ver todos los estudiantes ordenados por apellido");
                 showAllStudentsSortByLastName(estudianteService);
 
-            } else if(cmd.hasOption("eln")) { //Aca esta el codigo
+            } else if(cmd.hasOption("eln")) {
                 // Ejemplo: -eln Rojas
                 // Ver todos los estudiantes con un apellido en particular
                 System.out.println("IMPLEMENTAR: Ver todos los estudiantes con un apellido en particular");
