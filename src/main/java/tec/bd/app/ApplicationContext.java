@@ -18,10 +18,7 @@ import tec.bd.app.domain.Profesor;
 import tec.bd.app.service.*;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 public class ApplicationContext {
 
