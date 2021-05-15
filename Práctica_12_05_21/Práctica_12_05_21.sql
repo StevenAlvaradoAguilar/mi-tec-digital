@@ -34,6 +34,8 @@ create table USERS(
 	lastname varchar(50)
 );
 
+drop table USERS;
+
 create table RATING(
 	movie_Id int not null,
     score int not null,
@@ -67,3 +69,66 @@ insert into MOVIE(title, release_Date, category_Id) values ('Jonh Wick', '2014-0
 insert into RATING(movie_Id, user_Id, score, review) values (1, 1, 3, 'it is king of boring');
 insert into RATING(movie_Id, user_Id, score, review) values (2, 1, 4, 'this one is more fun');
 insert into RATING(movie_Id, user_Id, score, review) values (3, 30, 5, 'superb movie');
+
+select * from MOVIE as m INNER JOIN category as c on m.category_id = c.id;
+
+select * from MOVIE as m LEFT JOIN category as c on m.category_id = c.id;
+
+select * 
+from 
+MOVIE as m RIGHT JOIN category as c on m.category_id = c.id
+where
+m.category_id is null
+;
+
+select c.id, c.category_Name 
+from 
+MOVIE as m RIGHT JOIN category as c on m.category_id = c.id
+where
+m.category_id is not null
+;
+
+select * from USERS as u INNER JOIN RATING as r on u.id = r.user_Id;
+
+select * from RATING RIGHT JOIN USERS ON RATING.user_Id = user_Id where rating.user_Id is null;
+
+select c.id, c.category_name 
+from USERS as u inner join RATING as r on u.id = r.user_Id
+inner join MOVIE as m on m.id = r.movie_Id
+inner join CATEGORY as c on c.id = m.category_Id
+;
+
+-- Funciones 
+drop function if exists movie_rating;
+
+delimiter $$
+create function movie_rating(movie_Id int, user_Id int) returns varchar(50) reads sql data
+begin
+	declare the_score int;
+	select r.score into the_score from RATING as r where r.movie_Id = movie_Id and r.user_Id and r.user_Id = user_Id;
+    case the_score
+		when 1 then return 'mala';
+        when 2 then return 'regular';
+        when 3 then return 'buena';
+        when 4 then return 'muy buena';
+        when 5 then return 'excelente';
+        else return 'no calificado';
+	end case;
+end
+$$
+delimiter ;
+
+select * from RATING;
+
+select movie_rating(1, 1);
+
+
+
+
+
+
+
+
+
+
+
