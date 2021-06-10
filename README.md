@@ -20,3 +20,10 @@ El proyecto se ve bien y todo corre.
 Nota: 5
 
 Noté que había cosas incompletas relativas a los cursos y profesores 
+
+
+## Revisión Tarea 4
+
+Nota: 8.5
+
+No hizo sentencias SQL para los casos de encontrar por ID o por nombre. Filtró los resultados del `select` general.
