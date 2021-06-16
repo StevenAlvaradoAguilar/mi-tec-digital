@@ -30,11 +30,6 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
     }
 
     @Override
-    public List<Curso> findByName(String name) {
-        return this.findAll().stream().filter(c -> c.getNombre().equals(name)).collect(Collectors.toList());
-    }
-
-    @Override
     public List<Curso> findByDepartment(String department) {
         return this.findAll().stream().filter(c -> c.getDepartamento().equals(department)).collect(Collectors.toList());
     }
@@ -128,7 +123,6 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
 
         return Optional.empty();
     }
-
 
     @Override
     public void delete(Integer id) {

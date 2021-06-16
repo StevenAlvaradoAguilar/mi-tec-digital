@@ -29,10 +29,10 @@ public class ProfesorMySqlDAOImpl extends GenericMySqlDAOImpl<Profesor, Integer>
         this.dbProperties = dbProperties;
     }
 
-    @Override
-    public List<Profesor> findByLastName(String lastName) {
-        return this.findAll().stream().filter(p -> p.getApellido().equals(lastName)).collect(Collectors.toList());
-    }
+//    @Override
+//    public List<Profesor> findByLastName(String lastName) {
+//        return this.findAll().stream().filter(p -> p.getApellido().equals(lastName)).collect(Collectors.toList());
+//    }
 
     @Override
     public List<Profesor> findByCity(String city) {
@@ -75,7 +75,6 @@ public class ProfesorMySqlDAOImpl extends GenericMySqlDAOImpl<Profesor, Integer>
         } catch (SQLException p) {
             LOG.error("Error when running {}", SQL_SELECT_PROFESORES, p);
         }
-
         return Optional.empty();
     }
 

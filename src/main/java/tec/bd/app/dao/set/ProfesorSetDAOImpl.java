@@ -15,10 +15,10 @@ public class ProfesorSetDAOImpl extends GenericSetDAOImpl<Profesor, Integer> imp
         super(setDB, Profesor.class);
     }
 
-    @Override
-    public List<Profesor> findByLastName(String lastName) {
-        return this.findAll().stream().filter(p -> p.getApellido().equals(lastName)).collect(Collectors.toList());
-    }
+//    @Override
+//    public List<Profesor> findByLastName(String lastName) {
+//        return this.findAll().stream().filter(p -> p.getApellido().equals(lastName)).collect(Collectors.toList());
+//    }
 
     @Override
     public List<Profesor> findByCity(String city) {

@@ -1,9 +1,12 @@
 package tec.bd.app;
 
 import tec.bd.app.dao.*;
-import tec.bd.app.dao.mysql.EstudianteMySqlDAOImpl;
-import tec.bd.app.dao.mysql.ProfesorMySqlDAOImpl;
-import tec.bd.app.dao.mysql.CursoMySqlDAOImpl;
+import tec.bd.app.dao.mysql.routine.EstudianteMySqlDAOImpl;
+import tec.bd.app.dao.mysql.routine.ProfesorMySqlDAOImpl;
+import tec.bd.app.dao.mysql.routine.CursoMySqlDAOImpl;
+//import tec.bd.app.dao.mysql.EstudianteMySqlDAOImpl;
+//import tec.bd.app.dao.mysql.ProfesorMySqlDAOImpl;
+//import tec.bd.app.dao.mysql.CursoMySqlDAOImpl;
 import tec.bd.app.dao.set.CursoSetDAOImpl;
 import tec.bd.app.dao.set.EstudianteSetDAOImpl;
 import tec.bd.app.dao.set.ProfesorSetDAOImpl;
@@ -23,7 +26,6 @@ import java.util.*;
 public class ApplicationContext {
 
     private SetDB setDB;
-    private DBProperties dbProperties;
     private EstudianteDAO estudianteDAO;
     private EstudianteService estudianteService;
 
@@ -32,12 +34,6 @@ public class ApplicationContext {
 
     private ProfesorDAO profesorDAO;
     private ProfesorService profesorService;
-
-
-    private static final String CONNECTION_STRING = "jdbc:mysql://localhost:3306/universidad";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "SSDDGalax3050@";
-    private static final DBProperties DB_PROPERTIES = new DBProperties(CONNECTION_STRING, DB_USERNAME, DB_PASSWORD);
 
     private static final String DATABASE_PROPERTIES_FILE = "/database.properties";
     private static final String CONNECTION_STRING_PROP = "database.url";
@@ -187,9 +183,6 @@ public class ApplicationContext {
     private static ProfesorDAO initProfesorSetDAO(SetDB setDB) {
         return new ProfesorSetDAOImpl(setDB);
     }
-
-
-
 
     private static DBProperties initDBProperties(String dbPropertiesFilePath) {
         try (InputStream propFileStream = new FileInputStream(dbPropertiesFilePath)) {

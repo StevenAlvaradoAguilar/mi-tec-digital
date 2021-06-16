@@ -7,13 +7,6 @@ import java.util.List;
 public interface ProfesorDAO extends GenericDAO<Profesor, Integer>{
 
     /**
-     * Obtener todos los cursos por departamentos
-     * @param lastName
-     * return
-     */
-    List<Profesor> findByLastName(String lastName);
-
-    /**
      * Obtener todos los cursos por ciudad
      * @param city
      * return

@@ -19,6 +19,6 @@ public interface CursoService {
 
     List<Curso> findByDepartment(String department);
 
-    List<Curso> getCourseByDepartment(String department);
+    //List<Curso> getCourseByDepartment(String department);
 
 }

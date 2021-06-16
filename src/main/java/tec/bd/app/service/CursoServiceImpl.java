@@ -2,7 +2,6 @@ package tec.bd.app.service;
 
 import tec.bd.app.domain.Curso;
 import tec.bd.app.dao.CursoDAO;
-import tec.bd.app.domain.Estudiante;
 
 import java.util.List;
 import java.util.Optional;
@@ -65,12 +64,12 @@ public class CursoServiceImpl implements CursoService{
         return this.cursoDAO.findByDepartment(null);
     }
 
-    @Override
-    public List<Curso> getCourseByDepartment(String department) {
-        if (!department.isEmpty()) {
-            return this.cursoDAO.findByDepartment(department);
-        }
-        return null;
-    }
+//    @Override
+//    public List<Curso> getCourseByDepartment(String department) {
+//        if (!department.isEmpty()) {
+//            return this.cursoDAO.findByDepartment(department);
+//        }
+//        return null;
+//    }
 
 }

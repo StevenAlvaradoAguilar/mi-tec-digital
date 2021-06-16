@@ -16,11 +16,6 @@ public class CursoSetDAOImpl extends GenericSetDAOImpl<Curso, Integer> implement
     }
 
     @Override
-    public List<Curso> findByName(String name) {
-        return this.findAll().stream().filter(c -> c.getNombre().equals(name)).collect(Collectors.toList());
-    }
-
-    @Override
     public List<Curso> findByDepartment(String department) {
         return this.findAll().stream().filter(c -> c.getDepartamento().equals(department)).collect(Collectors.toList());
     }

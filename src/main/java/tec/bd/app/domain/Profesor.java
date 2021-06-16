@@ -6,7 +6,6 @@ public class Profesor implements Entity{
     private String nombre;
     private String apellido;
     private String ciudad;
-    private String departamento;
 
     public Profesor(int id, String nombre, String apellido, String ciudad) {
         this.id = id;

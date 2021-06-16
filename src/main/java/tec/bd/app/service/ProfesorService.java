@@ -17,7 +17,7 @@ public interface ProfesorService {
 
     void deleteTeacher(int id);
 
-    List<Profesor> getTeachersByLastName(String lastName);
+    //List<Profesor> getTeachersByLastName(String lastName);
 
     List<Profesor> getTeachersByCity(String city);
 
