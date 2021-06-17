@@ -102,8 +102,7 @@ public class CursoMySqlDAOImpl extends GenericMySqlDAOImpl<Curso, Integer> imple
             stmt.setString(2, curso.getNombre());
             stmt.setString(3, curso.getDepartamento());
             stmt.setInt(4, curso.getCreditos());
-            var result = stmt.executeUpdate();
-            System.out.println("Resultado " + result);
+            stmt.executeUpdate();
 
         } catch (SQLException ex) {
             LOG.error("Error when running {}", UPDATE_COURSE_PROCEDURE, ex);

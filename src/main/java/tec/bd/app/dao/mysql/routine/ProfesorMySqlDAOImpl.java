@@ -18,7 +18,6 @@ public class ProfesorMySqlDAOImpl extends GenericMySqlDAOImpl<Profesor, Integer>
 
     private static final Logger LOG = LoggerFactory.getLogger(ProfesorMySqlDAOImpl.class);
 
-    //private static final String FIND_BY_LASTNAME_PROCEDURE = "{call find_By_LastNameTeacher(?)}";
     private static final String FIND_BY_CITY_PROCEDURE = "{call find_By_City(?)}";
     private static final String ALL_TEACHERS_PROCEDURE = "{call all_teachers()}";
     private static final String FIND_BY_ID_PROCEDURE = "{call find_by_Id_teacher(?)}";

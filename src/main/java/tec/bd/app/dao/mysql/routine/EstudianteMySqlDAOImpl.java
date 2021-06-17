@@ -133,10 +133,10 @@ public class EstudianteMySqlDAOImpl extends GenericMySqlDAOImpl<Estudiante, Inte
             stmt.setString(3, estudiante.getApellido());
             stmt.setDate(4, sqlfecha);
             stmt.setInt(5, estudiante.getTotalCreditos());
-            var result = stmt.executeUpdate();
-            System.out.println("Resultado " + result);
+            stmt.executeUpdate();
 
             connection.commit();
+
             if(connection!=null) {
                 try {
                     connection.rollback();
