@@ -27,3 +27,10 @@ Noté que había cosas incompletas relativas a los cursos y profesores
 Nota: 8.5
 
 No hizo sentencias SQL para los casos de encontrar por ID o por nombre. Filtró los resultados del `select` general.
+
+## Revisión proyecto 2
+
+Nota: 8
+
+Hubo una interpretación errónea de los requirimientos(creo). Hubo procedimientos almacenados de inserción, actualización y borrado que no estaban dentro de bloques transaccionales.
+
