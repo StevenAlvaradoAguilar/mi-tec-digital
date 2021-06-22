@@ -93,7 +93,7 @@ CREATE TABLE `estudiante` (
 
 LOCK TABLES `estudiante` WRITE;
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
-INSERT INTO `estudiante` VALUES (1,'Steven','Alvarado','1999-12-02',8),(2,'Lermith','Biarreta','2000-08-08',8),(3,'Maria','Biarreta','2000-08-08',8),(4,'Valeria','Calderon','2000-08-08',12),(5,'Sebastian','Campos','2000-08-08',4),(6,'Josue','Castro','2000-08-08',11),(7,'Susana','Cen','2000-08-08',16),(8,'Johan','Echeverria','2000-08-08',8),(9,'Junior','Herrera','2000-08-08',8),(10,'Carlos','Vasquez','2000-04-02',14),(11,'Ismael','Vargas','1999-10-04',15);
+INSERT INTO `estudiante` VALUES (1,'Steven','Alvarado','1999-12-02',8),(2,'Lermith','Biarreta','2000-08-08',8),(3,'Maria','Biarreta','2000-08-08',8),(4,'Valeria','Calderon','2000-08-08',12),(5,'Sebastian','Campos','2000-08-08',4),(6,'Josue','Castro','2000-08-08',11),(7,'Susana','Cen','2000-08-08',16),(8,'Johan','Echeverria','2000-08-08',8),(9,'Junior','Herrera','2000-08-08',8),(10,'Carlos','Vasquez','2000-04-02',14),(11,'Ismael','Vargas','1999-10-04',15),(12,'Carlos','Mendez','2001-07-03',17);
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,27 +119,40 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
-INSERT INTO `profesor` VALUES (1,'Martin','Flores','San Carlos'),(2,'Allan','Cascante','San Jose'),(3,'Albert','Einstein','Cartago'),(4,'Marco','Calvo','Alajuela'),(5,'Jose','Herrera','San Carlos'),(6,'Carolina','Lizano','Cartago'),(7,'Raquel','Rodriguez','San Carlos');
+INSERT INTO `profesor` VALUES (1,'Juan','Perez','Cartago'),(2,'Allan','Cascante','San Jose'),(3,'Albert','Einstein','Cartago'),(4,'Marco','Calvo','Alajuela'),(5,'Jose','Herrera','San Carlos'),(6,'Carolina','Lizano','Cartago'),(7,'Raquel','Rodriguez','San Carlos');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tutor`
+--
+
+DROP TABLE IF EXISTS `tutor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tutor` (
+  `estudiante_id` int DEFAULT NULL,
+  `profesor_id` int DEFAULT NULL,
+  KEY `estudiante_id` (`estudiante_id`),
+  KEY `profesor_id` (`profesor_id`),
+  CONSTRAINT `tutor_ibfk_1` FOREIGN KEY (`estudiante_id`) REFERENCES `estudiante` (`id`),
+  CONSTRAINT `tutor_ibfk_2` FOREIGN KEY (`profesor_id`) REFERENCES `profesor` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tutor`
+--
+
+LOCK TABLES `tutor` WRITE;
+/*!40000 ALTER TABLE `tutor` DISABLE KEYS */;
+INSERT INTO `tutor` VALUES (8,2),(3,3);
+/*!40000 ALTER TABLE `tutor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping events for database 'universidad'
 --
-
--- Creacion del nuevo usuario 
-CREATE USER 'universidad_user'@'localhost' IDENTIFIED BY 'universidad_pass';
-GRANT INSERT ON universidad.* TO 'universidad_user'@'localhost';
-GRANT DROP ON universidad.* TO 'universidad_user'@'localhost';
-GRANT DELETE ON universidad.* TO 'universidad_user'@'localhost';
-GRANT UPDATE ON universidad.* TO 'universidad_user'@'localhost';
-GRANT SELECT ON universidad.* TO 'universidad_user'@'localhost';
-GRANT EXECUTE ON universidad.* TO 'universidad_user'@'localhost';
-GRANT EXECUTE ON universidad.* TO 'universidad_user'@'localhost';
-GRANT EXECUTE ON universidad.add_teacher TO 'universidad_user'@'localhost';
-SHOW GRANTS FOR 'universidad_user'@'localhost';
-
-SET autocommit = OFF;
 
 --
 -- Dumping routines for database 'universidad'
@@ -156,7 +169,17 @@ SET autocommit = OFF;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_course`(in course_id int, in course_name varchar(50), in course_dept varchar(50), in course_credits int)
 begin
+    declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
+	start transaction;
 	insert into curso(id, nombre, departamento, creditos) values (course_id, course_name, course_dept, course_credits);
+	commit;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -175,7 +198,17 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_student`(in student_id int, in student_name varchar(50), in student_lastname varchar(50), in student_Date_of_birth date, in student_credits int)
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
+	start transaction;
 	insert into estudiante(id, nombre, apellido, fecha_nacimiento, total_creditos) values (student_id, student_name, student_lastname, student_Date_of_birth, student_credits);
+    commit;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -194,6 +227,14 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_teacher`(in teacher_id int, in teacher_name varchar(50), in teacher_lastname varchar(50), in teacher_city varchar(50))
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
 	start transaction;
 	insert into profesor(id, nombre, apellido, ciudad) values (teacher_id, teacher_name, teacher_lastname, teacher_city);
     commit;
@@ -272,7 +313,17 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_course`(in course_id int)
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
+	start transaction;
 	delete from curso where course_id = id;
+    commit;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -291,7 +342,17 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_student`(in student_id int)
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
+	start transaction;
 	delete from estudiante where student_id = id;
+    commit;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -310,6 +371,14 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_teacher`(in teacher_id int)
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
 	start transaction;
 	delete from profesor where teacher_id = id;
     commit;
@@ -483,7 +552,17 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `update_course`(in course_id int, in course_name varchar(50), in course_dept varchar(50), in course_credits int)
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
+	start transaction;
 	update curso set id = course_id, nombre = course_name, departamento = course_dept, creditos = course_credits where id = course_id;
+	commit;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -502,7 +581,17 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `update_student`(in student_id int, in student_name varchar(50), in student_lastname varchar(50), in student_Date_of_birth date, in student_credits int)
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
+	start transaction;
 	update estudiante set id = student_id, nombre = student_name, apellido = student_lastname, fecha_nacimiento = student_Date_of_birth, total_creditos = student_credits where id = student_id;
+    commit;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -521,6 +610,14 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `update_teacher`(in teacher_id int, in teacher_name varchar(50), in teacher_lastname varchar(50), in teacher_city varchar(50))
 begin
+	declare exit handler for sqlexception
+    begin
+    rollback;
+    end;
+    DECLARE exit handler for sqlwarning
+    begin
+    rollback;
+    end;
 	start transaction;
 	update profesor set id = teacher_id, nombre = teacher_name, apellido = teacher_lastname, ciudad = teacher_city where id = teacher_id;
 	commit;	
@@ -540,4 +637,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-16 12:43:39
+-- Dump completed on 2021-06-21 20:20:05
